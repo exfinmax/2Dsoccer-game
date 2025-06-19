@@ -1,0 +1,87 @@
+[gd_scene load_steps=7 format=3 uid="uid://dmo3clbesokyb"]
+
+[ext_resource type="Script" uid="uid://c30ddsl6uytqj" path="res://scenes/characters/goal/goal.gd" id="1_6tmmk"]
+[ext_resource type="Texture2D" uid="uid://can0i8mpuyt2t" path="res://assets/art/backgrounds/goal-bottom.png" id="1_f7b3s"]
+[ext_resource type="Texture2D" uid="uid://upb178h63756" path="res://assets/art/backgrounds/goal-top.png" id="2_ocnju"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6tmmk"]
+size = Vector2(26, 2)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gu2qj"]
+size = Vector2(6, 60)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5twa8"]
+size = Vector2(6, 80)
+
+[node name="Goal" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_6tmmk")
+
+[node name="BottomFrameSprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_f7b3s")
+centered = false
+offset = Vector2(-23, -125)
+
+[node name="TopFrameSprite" type="Sprite2D" parent="."]
+position = Vector2(0, -65)
+texture = ExtResource("2_ocnju")
+centered = false
+offset = Vector2(-23, -59)
+
+[node name="BackNetArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+monitorable = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BackNetArea"]
+polygon = PackedVector2Array(-20, -2, -12, -65, -10, -65, -18, -2)
+
+[node name="BottomFrame" type="StaticBody2D" parent="."]
+position = Vector2(-3, -1)
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomFrame"]
+shape = SubResource("RectangleShape2D_6tmmk")
+
+[node name="TopFrame" type="StaticBody2D" parent="."]
+position = Vector2(7, -67)
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopFrame"]
+shape = SubResource("RectangleShape2D_6tmmk")
+
+[node name="Targets" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="TopTarget" type="Node2D" parent="Targets"]
+position = Vector2(22, -56)
+
+[node name="TopTarget2" type="Node2D" parent="Targets"]
+position = Vector2(22, -45)
+
+[node name="MiddleTarget" type="Node2D" parent="Targets"]
+position = Vector2(22, -35)
+
+[node name="BottomTarget" type="Node2D" parent="Targets"]
+position = Vector2(22, -22)
+
+[node name="BottomTarget2" type="Node2D" parent="Targets"]
+position = Vector2(22, -10)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(-7, -1)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(20, -35)
+shape = SubResource("RectangleShape2D_gu2qj")
+
+[node name="ScoringArea" type="Area2D" parent="."]
+unique_name_in_owner = true
+collision_layer = 16
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScoringArea"]
+position = Vector2(0, -35)
+shape = SubResource("RectangleShape2D_5twa8")

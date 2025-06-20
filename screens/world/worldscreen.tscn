@@ -18,6 +18,7 @@ size = Vector2(802, 10)
 
 [node name="WorldScreen" type="Node"]
 script = ExtResource("1_5mmo6")
+music = 1
 metadata/_edit_vertical_guides_ = [852.0]
 metadata/_edit_horizontal_guides_ = [363.0]
 

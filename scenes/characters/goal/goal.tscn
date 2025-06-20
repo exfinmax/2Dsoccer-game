@@ -11,7 +11,7 @@ size = Vector2(26, 2)
 size = Vector2(6, 60)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5twa8"]
-size = Vector2(6, 80)
+size = Vector2(23, 80)
 
 [node name="Goal" type="Node2D"]
 y_sort_enabled = true
@@ -83,5 +83,5 @@ collision_layer = 16
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ScoringArea"]
-position = Vector2(0, -35)
+position = Vector2(-8.5, -35)
 shape = SubResource("RectangleShape2D_5twa8")

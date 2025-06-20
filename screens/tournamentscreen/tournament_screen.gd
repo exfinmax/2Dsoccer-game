@@ -1,5 +1,5 @@
 class_name TournamentScreen
-extends Node
+extends Screen
 
 const STAGE_TEXTURE := {
 	Tournament.Stage.QUARTED_FINAL: preload("res://assets/art/ui/teamselection/quarters-label.png"),
@@ -21,14 +21,23 @@ const STAGE_TEXTURE := {
 var player_country : String = GameManager.player_setup[0]
 var tournamenet : Tournament = null
 
+
+	
+
 func _ready() -> void:
-	tournamenet = Tournament.new()
+	tournamenet = screen_data.tournament
+	if tournamenet.current_stage == Tournament.Stage.COMPLETE:
+		MusicPlayer.play_music(MusicPlayer.Music.WIN)
 	refresh_ui()
 
 func _process(delta: float) -> void:
-	if KeyUtils.is_action_just_pressed(Player.ControlScheme.P1, KeyUtils.Action.SHOOT):
-		tournamenet.advance()
-		refresh_ui()
+	if KeyUtils.is_action_just_pressed(Player.ControlScheme.P1, KeyUtils.Action.PASS) || KeyUtils.is_action_just_pressed(Player.ControlScheme.P1, KeyUtils.Action.SHOOT):
+		await get_tree().create_timer(1).timeout
+		if tournamenet.current_stage < Tournament.Stage.COMPLETE:
+			transition_state(SoccerGame.ScreenType.IN_GAME, screen_data)
+		else:
+			transition_state(SoccerGame.ScreenType.MAIN_MENU)
+		SoundPlayer.play(SoundPlayer.Sound.UI_SELECT)
 
 func refresh_ui() -> void:
 	for stage in range(tournamenet.current_stage + 1):
@@ -54,7 +63,8 @@ func refresh_bracket_stage(stage: Tournament.Stage) -> void:
 			elif [current_match.country_home, current_match.country_away].has(player_country) && stage == tournamenet.current_stage:
 				var flag_player := flag_home if current_match.country_home == player_country else flag_away
 				flag_player.set_as_current_team()
-
+				GameManager.current_match = current_match
+				
 	else:
 		
 		flag_nodes[0].texture = TextureHelper.get_texture(tournamenet.winner)

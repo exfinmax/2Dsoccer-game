@@ -295,6 +295,7 @@ _data = {
 
 [node name="MainMenu" type="Node"]
 script = ExtResource("1_only1")
+music = 2
 
 [node name="BackGround" type="TextureRect" parent="."]
 offset_right = 40.0

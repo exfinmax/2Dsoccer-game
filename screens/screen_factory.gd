@@ -6,7 +6,7 @@ func _init() -> void:
 	type = {
 		SoccerGame.ScreenType.MAIN_MENU: preload("res://screens/mainmenu/main_menu.tscn"),
 		SoccerGame.ScreenType.TEAM_SELECTION: preload("res://screens/teamselection/team_selection_screen.tscn"),
-		SoccerGame.ScreenType.TOURNAMENT: MainMenuScreen,
+		SoccerGame.ScreenType.TOURNAMENT: preload("res://screens/tournamentscreen/tournament_screen.tscn"),
 		SoccerGame.ScreenType.IN_GAME: preload("res://screens/world/worldscreen.tscn"),
 	}
 

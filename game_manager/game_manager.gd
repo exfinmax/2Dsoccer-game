@@ -1,6 +1,6 @@
 extends Node
 
-const DURATION_GAME_SEC := 120
+const DURATION_GAME_SEC := 2 * 60
 const DURATION_IMPACT_PAUSE := 100
 
 enum State {IN_PLAY, SCORED, RESET, KICKOFF, OVERTIME, GAMEOVER}
@@ -16,7 +16,6 @@ func _init() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 
 func _ready() -> void:
-	time_left = DURATION_GAME_SEC
 	GameEvents.impact_receive.connect(on_spark_spawn.bind())
 
 func _physics_process(delta: float) -> void:
@@ -54,4 +53,5 @@ func on_spark_spawn(_position: Vector2, flag: bool) -> void:
 		get_tree().paused = true
 
 func start_game() -> void:
+	time_left = DURATION_GAME_SEC
 	switch_state(State.RESET)

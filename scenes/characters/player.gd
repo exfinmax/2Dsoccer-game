@@ -86,6 +86,8 @@ func _process(delta: float) -> void:
 	set_sprite_visible()
 	process_gravity(delta)
 	move_and_slide()
+	
+		
 
 func set_shader_properties() -> void:
 	player_sprite.material.set_shader_parameter("skin_color", skin_color)

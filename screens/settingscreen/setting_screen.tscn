@@ -1,0 +1,44 @@
+[gd_scene load_steps=2 format=3 uid="uid://ciy4kbp486efr"]
+
+[ext_resource type="Script" uid="uid://w3ev454wwgfj" path="res://screens/settingscreen/setting_screen.gd" id="1_5x83w"]
+
+[node name="SettingScreen" type="Node"]
+script = ExtResource("1_5x83w")
+
+[node name="BackGround" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1.48002e-06, 0.388937, 0.00483449, 1)
+
+[node name="Settingthings" type="VBoxContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="Settingthings"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "SETTING"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Settingthings"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Settingthings"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Settingthings"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="Settingthings"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2

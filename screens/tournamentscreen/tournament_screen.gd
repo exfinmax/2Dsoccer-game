@@ -32,7 +32,6 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if KeyUtils.is_action_just_pressed(Player.ControlScheme.P1, KeyUtils.Action.PASS) || KeyUtils.is_action_just_pressed(Player.ControlScheme.P1, KeyUtils.Action.SHOOT):
-		await get_tree().create_timer(1).timeout
 		if tournamenet.current_stage < Tournament.Stage.COMPLETE:
 			transition_state(SoccerGame.ScreenType.IN_GAME, screen_data)
 		else:

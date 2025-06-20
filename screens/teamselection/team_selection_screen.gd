@@ -75,4 +75,5 @@ func on_selector_selected() -> void:
 		GameManager.current_match = Match.new(country_p2, country_p1)
 		transition_state(SoccerGame.ScreenType.IN_GAME)
 	else:
+		await get_tree().create_timer(0.1).timeout
 		transition_state(SoccerGame.ScreenType.TOURNAMENT, ScreenData.buide().get_tournament(Tournament.new()))

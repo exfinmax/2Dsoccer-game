@@ -6,6 +6,7 @@ enum ScreenType {
 	TEAM_SELECTION,
 	TOURNAMENT,
 	IN_GAME,
+	SETTING,
 }
 
 var current_screen : Screen = null

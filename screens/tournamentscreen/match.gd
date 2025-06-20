@@ -24,3 +24,9 @@ func increase_score(country_scored_on: String) -> void:
 func update_match_info() -> void:
 	winner = country_home if goal_home > goal_away else country_away
 	final_score = "%d - %d" % [max(goal_away,goal_home), min(goal_away, goal_home)]
+
+func reslove() -> void:
+	while is_tied():
+		goal_home = randi_range(0,5)
+		goal_away = randi_range(0,5)
+	update_match_info()

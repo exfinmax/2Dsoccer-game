@@ -29,6 +29,7 @@ theme_override_constants/separation = 0
 alignment = 1
 
 [node name="QFleftContainer" type="VBoxContainer" parent="BackGround/BracketsContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_constants/separation = 0
@@ -62,33 +63,35 @@ layout_mode = 2
 custom_minimum_size = Vector2(2, 0)
 layout_mode = 2
 
-[node name="QFleftContainer2" type="VBoxContainer" parent="BackGround/BracketsContainer"]
+[node name="SEleftContainer" type="VBoxContainer" parent="BackGround/BracketsContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_constants/separation = 0
 alignment = 1
 
-[node name="BracketFlag" parent="BackGround/BracketsContainer/QFleftContainer2" instance=ExtResource("3_d67dh")]
+[node name="BracketFlag" parent="BackGround/BracketsContainer/SEleftContainer" instance=ExtResource("3_d67dh")]
 layout_mode = 2
 
-[node name="Vlink" type="TextureRect" parent="BackGround/BracketsContainer/QFleftContainer2"]
+[node name="Vlink" type="TextureRect" parent="BackGround/BracketsContainer/SEleftContainer"]
 layout_mode = 2
 texture = ExtResource("4_hqkcb")
 
-[node name="BracketFlag2" parent="BackGround/BracketsContainer/QFleftContainer2" instance=ExtResource("3_d67dh")]
+[node name="BracketFlag2" parent="BackGround/BracketsContainer/SEleftContainer" instance=ExtResource("3_d67dh")]
 layout_mode = 2
 
 [node name="Control2" type="Control" parent="BackGround/BracketsContainer"]
 custom_minimum_size = Vector2(2, 0)
 layout_mode = 2
 
-[node name="QFleftContainer4" type="VBoxContainer" parent="BackGround/BracketsContainer"]
+[node name="FIleftContainer" type="VBoxContainer" parent="BackGround/BracketsContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_constants/separation = 0
 alignment = 1
 
-[node name="BracketFlag" parent="BackGround/BracketsContainer/QFleftContainer4" instance=ExtResource("3_d67dh")]
+[node name="BracketFlag" parent="BackGround/BracketsContainer/FIleftContainer" instance=ExtResource("3_d67dh")]
 layout_mode = 2
 
 [node name="QFleftContainer6" type="VBoxContainer" parent="BackGround/BracketsContainer"]
@@ -102,33 +105,35 @@ alignment = 1
 layout_mode = 2
 texture = ExtResource("5_7okgf")
 
-[node name="QFleftContainer5" type="VBoxContainer" parent="BackGround/BracketsContainer"]
+[node name="FIrightContainer" type="VBoxContainer" parent="BackGround/BracketsContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_constants/separation = 0
 alignment = 1
 
-[node name="BracketFlag" parent="BackGround/BracketsContainer/QFleftContainer5" instance=ExtResource("3_d67dh")]
+[node name="BracketFlag" parent="BackGround/BracketsContainer/FIrightContainer" instance=ExtResource("3_d67dh")]
 layout_mode = 2
 
 [node name="Control3" type="Control" parent="BackGround/BracketsContainer"]
 custom_minimum_size = Vector2(2, 0)
 layout_mode = 2
 
-[node name="QFleftContainer3" type="VBoxContainer" parent="BackGround/BracketsContainer"]
+[node name="SErightContainer" type="VBoxContainer" parent="BackGround/BracketsContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_constants/separation = 0
 alignment = 1
 
-[node name="BracketFlag" parent="BackGround/BracketsContainer/QFleftContainer3" instance=ExtResource("3_d67dh")]
+[node name="BracketFlag" parent="BackGround/BracketsContainer/SErightContainer" instance=ExtResource("3_d67dh")]
 layout_mode = 2
 
-[node name="Vlink" type="TextureRect" parent="BackGround/BracketsContainer/QFleftContainer3"]
+[node name="Vlink" type="TextureRect" parent="BackGround/BracketsContainer/SErightContainer"]
 layout_mode = 2
 texture = ExtResource("4_hqkcb")
 
-[node name="BracketFlag2" parent="BackGround/BracketsContainer/QFleftContainer3" instance=ExtResource("3_d67dh")]
+[node name="BracketFlag2" parent="BackGround/BracketsContainer/SErightContainer" instance=ExtResource("3_d67dh")]
 layout_mode = 2
 
 [node name="Control4" type="Control" parent="BackGround/BracketsContainer"]
@@ -136,6 +141,7 @@ custom_minimum_size = Vector2(2, 0)
 layout_mode = 2
 
 [node name="QFrightContainer" type="VBoxContainer" parent="BackGround/BracketsContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_constants/separation = 0
@@ -197,6 +203,7 @@ texture = ExtResource("6_7okgf")
 stretch_mode = 2
 
 [node name="StageTexture" type="TextureRect" parent="BackGround"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -210,6 +217,7 @@ texture = ExtResource("7_eqf1w")
 stretch_mode = 2
 
 [node name="WinnerContainer" type="Control" parent="BackGround"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5

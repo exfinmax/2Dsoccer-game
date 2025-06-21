@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://5keplyra1yuc"]
+
+[ext_resource type="Script" uid="uid://b5874c75fhuni" path="res://screens/settingscreen/active_container.gd" id="1_p82my"]
+
+[node name="ActiveContainer" type="HBoxContainer"]
+offset_right = 46.0
+offset_bottom = 28.0
+theme_override_constants/separation = 0
+script = ExtResource("1_p82my")
+color_default = Color(0.342207, 0.342207, 0.342207, 1)
+color_actived = Color(1, 1, 0.2, 1)
+
+[node name="Label" type="Label" parent="."]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 10
+text = "MUSIC"
+vertical_alignment = 1

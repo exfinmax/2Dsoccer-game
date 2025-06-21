@@ -28,8 +28,10 @@ const SFX_MAP : Dictionary[Sound, AudioStream] = {
 var stream_players :Array[AudioStreamPlayer] = []
 
 func _ready() -> void:
+	GameEvents.set_change.connect(on_set_change.bind())
 	for i in range(NB_CHANNELS):
 		var stream_player := AudioStreamPlayer.new()
+		stream_player.bus = "SFX"
 		stream_players.append(stream_player)
 		call_deferred("add_child", stream_player)
 
@@ -44,3 +46,6 @@ func find_available_player() -> AudioStreamPlayer:
 		if not stream_player.playing:
 			return stream_player
 	return null
+
+func on_set_change() -> void:
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"),linear_to_db(GameEvents.setting_varrent[1] / 10.0)) 

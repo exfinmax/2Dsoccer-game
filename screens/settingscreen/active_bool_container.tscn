@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://8uoyf4btjamn"]
+
+[ext_resource type="PackedScene" uid="uid://5keplyra1yuc" path="res://screens/settingscreen/active_container.tscn" id="1_lgc6f"]
+[ext_resource type="Script" uid="uid://pagmnjyne7p1" path="res://screens/settingscreen/active_bool_container.gd" id="2_0v8qv"]
+
+[node name="ActiveBoolContainer" instance=ExtResource("1_lgc6f")]
+script = ExtResource("2_0v8qv")
+max_value = 1
+
+[node name="Label" parent="." index="0"]
+custom_minimum_size = Vector2(80, 0)
+
+[node name="BoolLabel" type="Label" parent="." index="1"]
+layout_mode = 2
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 10

@@ -1,0 +1,75 @@
+[gd_scene load_steps=4 format=3 uid="uid://bq2niilcsfnpt"]
+
+[ext_resource type="PackedScene" uid="uid://5keplyra1yuc" path="res://screens/settingscreen/active_container.tscn" id="1_bads4"]
+[ext_resource type="Script" uid="uid://bykp24smtp5bo" path="res://screens/settingscreen/active_bar_container.gd" id="2_btnop"]
+[ext_resource type="Texture2D" uid="uid://b3qa8ufkj0cbg" path="res://assets/art/particles/white-circle.png" id="2_spbda"]
+
+[node name="ActiveBarContainer" instance=ExtResource("1_bads4")]
+offset_right = 62.0
+script = ExtResource("2_btnop")
+current_value = 5
+max_value = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." index="1"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer" index="0"]
+modulate = Color(0.588235, 0.592157, 0.607843, 1)
+layout_mode = 2
+texture = ExtResource("2_spbda")
+stretch_mode = 3
+
+[node name="TextureRect2" type="TextureRect" parent="HBoxContainer" index="1"]
+modulate = Color(0.588235, 0.592157, 0.607843, 1)
+layout_mode = 2
+texture = ExtResource("2_spbda")
+stretch_mode = 3
+
+[node name="TextureRect3" type="TextureRect" parent="HBoxContainer" index="2"]
+modulate = Color(0.588235, 0.592157, 0.607843, 1)
+layout_mode = 2
+texture = ExtResource("2_spbda")
+stretch_mode = 3
+
+[node name="TextureRect4" type="TextureRect" parent="HBoxContainer" index="3"]
+modulate = Color(0.588235, 0.592157, 0.607843, 1)
+layout_mode = 2
+texture = ExtResource("2_spbda")
+stretch_mode = 3
+
+[node name="TextureRect5" type="TextureRect" parent="HBoxContainer" index="4"]
+modulate = Color(0.588235, 0.592157, 0.607843, 1)
+layout_mode = 2
+texture = ExtResource("2_spbda")
+stretch_mode = 3
+
+[node name="TextureRect6" type="TextureRect" parent="HBoxContainer" index="5"]
+modulate = Color(0.588235, 0.592157, 0.607843, 1)
+layout_mode = 2
+texture = ExtResource("2_spbda")
+stretch_mode = 3
+
+[node name="TextureRect7" type="TextureRect" parent="HBoxContainer" index="6"]
+modulate = Color(0.588235, 0.592157, 0.607843, 1)
+layout_mode = 2
+texture = ExtResource("2_spbda")
+stretch_mode = 3
+
+[node name="TextureRect8" type="TextureRect" parent="HBoxContainer" index="7"]
+modulate = Color(0.588235, 0.592157, 0.607843, 1)
+layout_mode = 2
+texture = ExtResource("2_spbda")
+stretch_mode = 3
+
+[node name="TextureRect9" type="TextureRect" parent="HBoxContainer" index="8"]
+modulate = Color(0.588235, 0.592157, 0.607843, 1)
+layout_mode = 2
+texture = ExtResource("2_spbda")
+stretch_mode = 3
+
+[node name="TextureRect10" type="TextureRect" parent="HBoxContainer" index="9"]
+modulate = Color(0.588235, 0.592157, 0.607843, 1)
+layout_mode = 2
+texture = ExtResource("2_spbda")
+stretch_mode = 3

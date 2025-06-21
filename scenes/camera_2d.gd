@@ -30,6 +30,6 @@ func _process(delta: float) -> void:
 			offset = Vector2.ZERO
 
 func on_spark_spawn(_impact_position: Vector2, flag: bool) -> void:
-	if flag:
+	if flag && GameEvents.setting_varrent[2] == 1:
 		is_shaking = true
 		time_start_shake = Time.get_ticks_msec()

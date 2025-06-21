@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://chloe4s51xdnl"]
+
+[ext_resource type="Script" uid="uid://dg6bvxnww4f2g" path="res://scenes/characters/buff/buff_area.gd" id="1_puwq7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0p0ya"]
+size = Vector2(5, 10)
+
+[node name="BuffArea" type="Area2D"]
+y_sort_enabled = true
+collision_layer = 64
+collision_mask = 0
+script = ExtResource("1_puwq7")
+max_value = 1
+
+[node name="BuffSprite" type="Sprite2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_0p0ya")

@@ -23,7 +23,9 @@ func _process(delta: float) -> void:
 			change_selected_index(current_selected_index + 1)
 		elif KeyUtils.is_action_just_pressed(Player.ControlScheme.P1, KeyUtils.Action.SHOOT):
 			submit_selection()
-	
+		elif Input.is_action_just_pressed("set"):
+			transition_state(SoccerGame.ScreenType.SETTING)
+			
 	
 func refresh_ui() -> void:
 	for i in selectable_menu_nodes.size():

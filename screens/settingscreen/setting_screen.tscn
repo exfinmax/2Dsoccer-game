@@ -1,8 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://ciy4kbp486efr"]
+[gd_scene load_steps=4 format=3 uid="uid://ciy4kbp486efr"]
 
 [ext_resource type="Script" uid="uid://w3ev454wwgfj" path="res://screens/settingscreen/setting_screen.gd" id="1_5x83w"]
+[ext_resource type="PackedScene" uid="uid://bq2niilcsfnpt" path="res://screens/settingscreen/active_bar_container.tscn" id="2_mj2nt"]
+[ext_resource type="PackedScene" uid="uid://8uoyf4btjamn" path="res://screens/settingscreen/active_bool_container.tscn" id="3_mj2nt"]
 
 [node name="SettingScreen" type="Node"]
+process_mode = 3
 script = ExtResource("1_5x83w")
 
 [node name="BackGround" type="ColorRect" parent="."]
@@ -13,32 +16,47 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(1.48002e-06, 0.388937, 0.00483449, 1)
 
-[node name="Settingthings" type="VBoxContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 13
+theme_override_constants/margin_top = 7
+theme_override_constants/margin_right = 13
+theme_override_constants/margin_bottom = 7
 
-[node name="Title" type="Label" parent="Settingthings"]
+[node name="Settingthings" type="VBoxContainer" parent="MarginContainer"]
+unique_name_in_owner = true
 layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Title" type="Label" parent="MarginContainer/Settingthings"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.25098, 1, 0.25098, 1)
+theme_override_constants/outline_size = 6
 theme_override_font_sizes/font_size = 12
-text = "SETTING"
+text = "OPTION"
 horizontal_alignment = 1
-vertical_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Settingthings"]
-custom_minimum_size = Vector2(0, 25)
+[node name="ActiveBarContainer" parent="MarginContainer/Settingthings" instance=ExtResource("2_mj2nt")]
 layout_mode = 2
+text = "MUSIC"
+color_default = Color(0.342207, 0.342207, 0.342207, 1)
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="Settingthings"]
-custom_minimum_size = Vector2(0, 25)
+[node name="ActiveBarContainer2" parent="MarginContainer/Settingthings" instance=ExtResource("2_mj2nt")]
 layout_mode = 2
+text = "SFX"
+color_default = Color(0.342207, 0.342207, 0.342207, 1)
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="Settingthings"]
-custom_minimum_size = Vector2(0, 25)
+[node name="ActiveBoolContainer" parent="MarginContainer/Settingthings" instance=ExtResource("3_mj2nt")]
 layout_mode = 2
+text = "SHAKE"
+color_default = Color(0.342207, 0.342207, 0.342207, 1)
+current_value = 1
 
-[node name="HBoxContainer4" type="HBoxContainer" parent="Settingthings"]
-custom_minimum_size = Vector2(0, 25)
+[node name="ActiveBoolContainer2" parent="MarginContainer/Settingthings" instance=ExtResource("3_mj2nt")]
 layout_mode = 2
+text = "Buff"
+color_default = Color(0.342207, 0.342207, 0.342207, 1)

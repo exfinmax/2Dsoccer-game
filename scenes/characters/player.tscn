@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://jntlkvb7fv7p"]
+[gd_scene load_steps=37 format=3 uid="uid://jntlkvb7fv7p"]
 
 [ext_resource type="Shader" uid="uid://jacfu70gw3sk" path="res://shaders/replace_color.gdshader" id="1_dyp2m"]
 [ext_resource type="Texture2D" uid="uid://dt41gxuc7kqan" path="res://assets/art/characters/soccer-player.png" id="1_rp718"]
@@ -41,6 +41,10 @@ height = 120.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6eyoc"]
 size = Vector2(7, 7)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qgnko"]
+radius = 4.0
+height = 18.0
 
 [sub_resource type="Animation" id="Animation_dyp2m"]
 length = 0.001
@@ -472,6 +476,15 @@ visible = false
 position = Vector2(10, -6)
 shape = SubResource("RectangleShape2D_6eyoc")
 
+[node name="BuffDetectionArea" type="Area2D" parent="Body"]
+collision_layer = 0
+collision_mask = 64
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Body/BuffDetectionArea"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_qgnko")
+
 [node name="ShadowSprite" type="Sprite2D" parent="."]
 texture = ExtResource("3_76oj4")
 centered = false
@@ -529,3 +542,4 @@ shape = SubResource("CapsuleShape2D_eojnx")
 
 [connection signal="body_entered" from="Body/TackleDamageEmitterArea" to="." method="on_tackle_player"]
 [connection signal="body_entered" from="Body/PermanentDamageEmitterArea" to="." method="on_tackle_player"]
+[connection signal="area_entered" from="Body/BuffDetectionArea" to="." method="_on_buff_detection_area_area_entered"]

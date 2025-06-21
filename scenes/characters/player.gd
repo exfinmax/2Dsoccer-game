@@ -33,6 +33,12 @@ enum State{
 	RESET,
 }
 
+enum Buff{
+	NONE,
+	POWER,
+	SPEED,
+}
+
 @export var ball : Ball
 @export var control_scheme : ControlScheme
 @export var own_goal : Goal
@@ -68,10 +74,12 @@ var skin_color := Player.SkinColor.MEDIUM
 var spawn_position := Vector2.ZERO
 var weight_on_duty_steering := 0.0
 
+
 func _ready() -> void:
 	set_control_texture()
 	setup_ai_beheavior()
 	switch_state(State.MOVING)
+	add_buff()
 	set_shader_properties()
 	permanent_damage_emitter_area.monitoring = role == Role.GOALIE
 	hands_collider.disabled = role != Role.GOALIE
@@ -125,6 +133,10 @@ func switch_state(state: State, state_data: PlayerStateData = PlayerStateData.ne
 	current_state.name = "PlayerStateMachine: " + str(state)
 	call_deferred("add_child", current_state)
 
+func add_buff(buff: Buff = Buff.NONE) -> void:
+	if buff == Buff.NONE:
+		return
+	return
 
 func set_movement_animation() -> void:
 	var vel_length := velocity.length()
@@ -212,3 +224,8 @@ func can_carry_ball() -> bool:
 func on_tackle_player(player: Player) -> void:
 	if player != self && player.country != country && player == ball.carrier:
 		player.get_hurt(position.direction_to(player.position))
+
+
+func _on_buff_detection_area_area_entered(area: Area2D) -> void:
+	add_buff(area.buff_index + 1 as Buff)
+	area.queue_free()

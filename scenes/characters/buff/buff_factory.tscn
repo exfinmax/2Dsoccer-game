@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://fsivmytjpcca"]
-
-[ext_resource type="Script" uid="uid://b0y7gigd8apt6" path="res://scenes/characters/buff/buff_factory.gd" id="1_ayt8y"]
-
-[node name="BuffFactory" type="Node2D"]
-script = ExtResource("1_ayt8y")

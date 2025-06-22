@@ -43,20 +43,16 @@ horizontal_alignment = 1
 [node name="ActiveBarContainer" parent="MarginContainer/Settingthings" instance=ExtResource("2_mj2nt")]
 layout_mode = 2
 text = "MUSIC"
-color_default = Color(0.342207, 0.342207, 0.342207, 1)
 
 [node name="ActiveBarContainer2" parent="MarginContainer/Settingthings" instance=ExtResource("2_mj2nt")]
 layout_mode = 2
 text = "SFX"
-color_default = Color(0.342207, 0.342207, 0.342207, 1)
 
 [node name="ActiveBoolContainer" parent="MarginContainer/Settingthings" instance=ExtResource("3_mj2nt")]
 layout_mode = 2
 text = "SHAKE"
-color_default = Color(0.342207, 0.342207, 0.342207, 1)
 current_value = 1
 
 [node name="ActiveBoolContainer2" parent="MarginContainer/Settingthings" instance=ExtResource("3_mj2nt")]
 layout_mode = 2
 text = "Buff"
-color_default = Color(0.342207, 0.342207, 0.342207, 1)

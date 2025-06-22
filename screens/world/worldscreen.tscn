@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://b5ksd68amhd8a" path="res://assets/art/backgrounds/bottom-wall.png" id="8_1ibph"]
 [ext_resource type="Texture2D" uid="uid://dccmrj4gls8sk" path="res://assets/art/backgrounds/side-wall.png" id="9_pph63"]
 [ext_resource type="PackedScene" uid="uid://b7bftk8y4ei4o" path="res://scenes/characters/ball/ball.tscn" id="10_6adno"]
-[ext_resource type="PackedScene" uid="uid://fsivmytjpcca" path="res://scenes/characters/buff/buff_factory.tscn" id="11_ugshi"]
+[ext_resource type="PackedScene" uid="uid://fsivmytjpcca" path="res://scenes/characters/buff/buff_spawn_factory.tscn" id="11_ugshi"]
 [ext_resource type="PackedScene" uid="uid://cq75xlke1nt01" path="res://UI/ui.tscn" id="11_uwrqx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7r4gi"]
@@ -154,4 +154,4 @@ position = Vector2(425, 180)
 [node name="UI" parent="." instance=ExtResource("11_uwrqx")]
 
 [node name="Node2D" type="Node2D" parent="."]
-position = Vector2(706, 308)
+position = Vector2(705, 124)

@@ -33,11 +33,7 @@ enum State{
 	RESET,
 }
 
-enum Buff{
-	NONE,
-	POWER,
-	SPEED,
-}
+
 
 @export var ball : Ball
 @export var control_scheme : ControlScheme
@@ -57,8 +53,9 @@ enum Buff{
 @onready var permanent_damage_emitter_area: Area2D = %PermanentDamageEmitterArea
 @onready var hands_collider: CollisionShape2D = %HandsCollider
 @onready var gpu_particles_2d: GPUParticles2D = %GPUParticles2D
+@onready var power_gpu: GPUParticles2D = %PowerGPU
 
-
+var current_buff :Array[PlayerBuff]
 var ai_behavior_factory := AIBehaviorFactory.new()
 var current_ai_behavior : AIBehavior
 var country := ""
@@ -73,13 +70,12 @@ var role := Player.Role.MIDFIELD
 var skin_color := Player.SkinColor.MEDIUM
 var spawn_position := Vector2.ZERO
 var weight_on_duty_steering := 0.0
-
+var buff_factory := BuffFactory.new()
 
 func _ready() -> void:
 	set_control_texture()
 	setup_ai_beheavior()
 	switch_state(State.MOVING)
-	add_buff()
 	set_shader_properties()
 	permanent_damage_emitter_area.monitoring = role == Role.GOALIE
 	hands_collider.disabled = role != Role.GOALIE
@@ -133,11 +129,17 @@ func switch_state(state: State, state_data: PlayerStateData = PlayerStateData.ne
 	current_state.name = "PlayerStateMachine: " + str(state)
 	call_deferred("add_child", current_state)
 
-func add_buff(buff: Buff = Buff.NONE) -> void:
-	if buff == Buff.NONE:
+func add_buff(buff_index : int) -> void:
+	if buff_index == 0:
+		add_buff(randi_range(1,4))
 		return
-	return
-
+	if current_buff.has(buff_factory.get_fresh_buff(buff_index as PlayerBuff.Buff)):
+		queue_free_child(current_buff, buff_index)
+	current_buff.append(buff_factory.get_fresh_buff(buff_index as PlayerBuff.Buff))
+	current_buff[-1].set_up(self)
+	current_buff[-1].name = "PlayerBuff:" + str(buff_index)
+	call_deferred("add_child", current_buff[-1])
+	
 func set_movement_animation() -> void:
 	var vel_length := velocity.length()
 	if vel_length < 1:
@@ -227,5 +229,11 @@ func on_tackle_player(player: Player) -> void:
 
 
 func _on_buff_detection_area_area_entered(area: Area2D) -> void:
-	add_buff(area.buff_index + 1 as Buff)
+	add_buff(area.buff_index)
 	area.queue_free()
+
+func queue_free_child(array: Array, index: int) -> void:
+	for i in range(array.size() - 1, -1, -1):
+		if array[i].name == "PlayerBuff:" + str(index):
+			remove_child(array[i])
+			array.remove_at(i)

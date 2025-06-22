@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://jntlkvb7fv7p"]
+[gd_scene load_steps=40 format=3 uid="uid://jntlkvb7fv7p"]
 
 [ext_resource type="Shader" uid="uid://jacfu70gw3sk" path="res://shaders/replace_color.gdshader" id="1_dyp2m"]
 [ext_resource type="Texture2D" uid="uid://dt41gxuc7kqan" path="res://assets/art/characters/soccer-player.png" id="1_rp718"]
@@ -45,6 +45,22 @@ size = Vector2(7, 7)
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qgnko"]
 radius = 4.0
 height = 18.0
+
+[sub_resource type="Curve" id="Curve_6eyoc"]
+_data = [Vector2(0, 0.25), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_eojnx"]
+curve = SubResource("Curve_6eyoc")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qgnko"]
+particle_flag_disable_z = true
+gravity = Vector3(0, 98, 0)
+tangential_accel_min = -90.0
+tangential_accel_max = 90.0
+scale_min = 2.0
+scale_max = 4.0
+scale_curve = SubResource("CurveTexture_eojnx")
 
 [sub_resource type="Animation" id="Animation_dyp2m"]
 length = 0.001
@@ -484,6 +500,14 @@ monitorable = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Body/BuffDetectionArea"]
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_qgnko")
+
+[node name="PowerGPU" type="GPUParticles2D" parent="Body"]
+unique_name_in_owner = true
+modulate = Color(0.980392, 0.682353, 0, 1)
+emitting = false
+amount = 10
+lifetime = 0.5
+process_material = SubResource("ParticleProcessMaterial_qgnko")
 
 [node name="ShadowSprite" type="Sprite2D" parent="."]
 texture = ExtResource("3_76oj4")

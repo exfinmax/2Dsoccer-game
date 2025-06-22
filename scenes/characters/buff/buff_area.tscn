@@ -3,16 +3,17 @@
 [ext_resource type="Script" uid="uid://dg6bvxnww4f2g" path="res://scenes/characters/buff/buff_area.gd" id="1_puwq7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0p0ya"]
-size = Vector2(5, 10)
+size = Vector2(15, 15)
 
 [node name="BuffArea" type="Area2D"]
 y_sort_enabled = true
 collision_layer = 64
 collision_mask = 0
 script = ExtResource("1_puwq7")
-max_value = 1
+max_value = 3
 
 [node name="BuffSprite" type="Sprite2D" parent="."]
+scale = Vector2(0.031, 0.031)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_0p0ya")

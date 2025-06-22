@@ -1,6 +1,8 @@
 class_name SoccerGame
 extends Node
 
+
+
 enum ScreenType {
 	MAIN_MENU,
 	TEAM_SELECTION,
@@ -23,3 +25,7 @@ func switch_screen(screen: ScreenType, data:ScreenData = ScreenData.new()) -> vo
 	current_screen.set_up(self, data)
 	current_screen.state_transition_requested.connect(switch_screen.bind())
 	call_deferred("add_child", current_screen)
+	if screen == ScreenType.MAIN_MENU || screen == ScreenType.SETTING:
+		GameEvents.menu.emit(true)
+	else:
+		GameEvents.menu.emit(false)

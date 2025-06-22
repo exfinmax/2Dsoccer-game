@@ -9,6 +9,8 @@ signal impact_receive(impact_position: Vector2, is_high_impact: bool)
 signal team_scored(country_scored_on: String)
 signal team_reset
 signal set_change
+signal control_change(is_active:bool)
+signal menu(is_active:bool)
 
 var player_back_to_kickoff :int = 0 
 var setting_varrent : Array[int] = [5,5,1,0]

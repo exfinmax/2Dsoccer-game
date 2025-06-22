@@ -1,0 +1,175 @@
+[gd_scene load_steps=21 format=3 uid="uid://bjftlwluxnc8o"]
+
+[ext_resource type="Texture2D" uid="uid://cj4tgqcatlkvg" path="res://UI/VirtualJoypad/gdb-xbox-2.png" id="1_251k1"]
+[ext_resource type="Script" uid="uid://cm50x2i3s70ht" path="res://UI/VirtualJoypad/actions.gd" id="1_acavu"]
+[ext_resource type="Script" uid="uid://cpd86g7f3chjf" path="res://UI/VirtualJoypad/touch_screen_button.gd" id="2_aaf8j"]
+[ext_resource type="Script" uid="uid://djsbk523w85os" path="res://UI/VirtualJoypad/stick.gd" id="2_m5xhe"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aaf8j"]
+atlas = ExtResource("1_251k1")
+region = Rect2(17, 177, 14, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m5xhe"]
+atlas = ExtResource("1_251k1")
+region = Rect2(65, 178, 14, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o03fy"]
+atlas = ExtResource("1_251k1")
+region = Rect2(17, 209, 14, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q4yhg"]
+atlas = ExtResource("1_251k1")
+region = Rect2(65, 210, 14, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x35uw"]
+atlas = ExtResource("1_251k1")
+region = Rect2(339, 547, 10, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wtkmx"]
+atlas = ExtResource("1_251k1")
+region = Rect2(403, 550, 10, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2hfml"]
+atlas = ExtResource("1_251k1")
+region = Rect2(176, 352, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_251k1"]
+atlas = ExtResource("1_251k1")
+region = Rect2(184, 312, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_papd8"]
+atlas = ExtResource("1_251k1")
+region = Rect2(100, 210, 8, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h53oa"]
+atlas = ExtResource("1_251k1")
+region = Rect2(132, 178, 8, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7o3rx"]
+atlas = ExtResource("1_251k1")
+region = Rect2(116, 210, 8, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8wyls"]
+atlas = ExtResource("1_251k1")
+region = Rect2(148, 178, 8, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vk4fr"]
+atlas = ExtResource("1_251k1")
+region = Rect2(98, 227, 12, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xlvj1"]
+atlas = ExtResource("1_251k1")
+region = Rect2(130, 195, 12, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gms26"]
+atlas = ExtResource("1_251k1")
+region = Rect2(114, 227, 12, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1bkao"]
+atlas = ExtResource("1_251k1")
+region = Rect2(146, 195, 12, 8)
+
+[node name="VirtualJoypad" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Actions" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -54.0
+offset_top = -34.0
+offset_right = -54.0
+offset_bottom = -34.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(2.5, 2.5)
+script = ExtResource("1_acavu")
+
+[node name="Attack" type="TouchScreenButton" parent="Actions"]
+position = Vector2(-15, -7)
+scale = Vector2(0.7, 0.7)
+texture_normal = SubResource("AtlasTexture_aaf8j")
+texture_pressed = SubResource("AtlasTexture_m5xhe")
+action = "p1_shoot"
+visibility_mode = 1
+
+[node name="Jump" type="TouchScreenButton" parent="Actions"]
+position = Vector2(1, -7)
+scale = Vector2(0.7, 0.7)
+texture_normal = SubResource("AtlasTexture_o03fy")
+texture_pressed = SubResource("AtlasTexture_q4yhg")
+action = "p1_pass"
+visibility_mode = 1
+
+[node name="Options" type="TouchScreenButton" parent="Actions"]
+position = Vector2(-90.8, -58.4)
+texture_normal = SubResource("AtlasTexture_x35uw")
+texture_pressed = SubResource("AtlasTexture_wtkmx")
+action = "set"
+visibility_mode = 1
+
+[node name="Stick" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -180.0
+offset_bottom = -180.0
+grow_vertical = 0
+scale = Vector2(2.5, 2.5)
+script = ExtResource("2_m5xhe")
+
+[node name="Sprite2D" type="Sprite2D" parent="Stick"]
+visible = false
+position = Vector2(15.2, 57.6)
+scale = Vector2(0.8, 0.8)
+texture = SubResource("AtlasTexture_2hfml")
+
+[node name="Knob" type="TouchScreenButton" parent="Stick"]
+visible = false
+position = Vector2(9.2, 51.2)
+scale = Vector2(0.8, 0.8)
+texture_normal = SubResource("AtlasTexture_251k1")
+visibility_mode = 1
+script = ExtResource("2_aaf8j")
+
+[node name="OptionsActions" type="Node2D" parent="Stick"]
+position = Vector2(15.6, 58)
+scale = Vector2(0.7, 0.7)
+
+[node name="Up" type="TouchScreenButton" parent="Stick/OptionsActions"]
+position = Vector2(-4, -15)
+texture_normal = SubResource("AtlasTexture_papd8")
+texture_pressed = SubResource("AtlasTexture_h53oa")
+action = "p1_up"
+visibility_mode = 1
+
+[node name="Down" type="TouchScreenButton" parent="Stick/OptionsActions"]
+position = Vector2(-4, 4)
+texture_normal = SubResource("AtlasTexture_7o3rx")
+texture_pressed = SubResource("AtlasTexture_8wyls")
+action = "p1_down"
+visibility_mode = 1
+
+[node name="Left" type="TouchScreenButton" parent="Stick/OptionsActions"]
+position = Vector2(-16, -4)
+texture_normal = SubResource("AtlasTexture_vk4fr")
+texture_pressed = SubResource("AtlasTexture_xlvj1")
+action = "p1_left"
+visibility_mode = 1
+
+[node name="Right" type="TouchScreenButton" parent="Stick/OptionsActions"]
+position = Vector2(4, -4)
+texture_normal = SubResource("AtlasTexture_gms26")
+texture_pressed = SubResource("AtlasTexture_1bkao")
+action = "p1_right"
+visibility_mode = 1

@@ -11,11 +11,12 @@ var is_over :bool = false
 func _ready() -> void:
 	GameEvents.game_over.connect(on_game_over.bind())
 	GameManager.start_game()
-
+	GameEvents.control_change.emit(false)
 
 func _process(delta: float) -> void:
 	if is_over:
 		if Time.get_ticks_msec() - time_start_game_over > DURATION:
+			GameEvents.control_change.emit(true)
 			if screen_data.tournament != null && GameManager.current_match.winner == GameManager.player_setup[0]:
 				screen_data.tournament.advance()
 				transition_state(SoccerGame.ScreenType.TOURNAMENT, screen_data)
